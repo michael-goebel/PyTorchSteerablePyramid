@@ -18,7 +18,7 @@ from __future__ import print_function
 
 import os
 import numpy as np
-import skimage
+import skimage.io
 import matplotlib.pyplot as plt
 
 import torch
@@ -95,7 +95,6 @@ def extract_from_batch(coeff_batch, example_idx=0):
             coeff_orientations_numpy = []
             for coeff_orientation in coeff_level:
                 coeff_orientation_numpy = coeff_orientation[example_idx].cpu().numpy()
-                coeff_orientation_numpy = coeff_orientation_numpy[:,:,0] + 1j*coeff_orientation_numpy[:,:,1]
                 coeff_orientations_numpy.append(coeff_orientation_numpy)
             coeff.append(coeff_orientations_numpy)
         else:

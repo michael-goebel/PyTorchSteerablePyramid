@@ -27,10 +27,7 @@ from steerable.SCFpyr_PyTorch import SCFpyr_PyTorch
 from steerable.SCFpyr_NumPy import SCFpyr_NumPy
 import steerable.utils as utils
 
-import cortex.plot
-cortex.plot.init_plotting()
-colors = cortex.plot.nature_colors()
-
+colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
 if __name__ == "__main__":
 
@@ -125,16 +122,15 @@ if __name__ == "__main__":
         if num_examples == 8: continue
         avg_durations_numpy = np.mean(durations_numpy[i,:], -1) / num_examples
         avg_durations_torch = np.mean(durations_torch[i,:], -1) / num_examples
-        plt.plot(config.image_sizes, avg_durations_numpy, marker='o', linestyle='-', lw=1.4, color=colors[i], label='numpy  (N = {})'.format(num_examples))
-        plt.plot(config.image_sizes, avg_durations_torch, marker='d', linestyle='--', lw=1.4, color=colors[i], label='pytorch (N = {})'.format(num_examples))
+        plt.loglog(config.image_sizes, avg_durations_numpy, marker='o', linestyle='-', lw=1.4, color=colors[i], label='numpy  (N = {})'.format(num_examples))
+        plt.loglog(config.image_sizes, avg_durations_torch, marker='d', linestyle='--', lw=1.4, color=colors[i], label='pytorch (N = {})'.format(num_examples))
 
     plt.title('Runtime Benchmark ({} levels, {} bands, average {numruns} runs)'.format(config.pyr_nlevels, config.pyr_nbands, numruns=config.num_runs))
     plt.xlabel('Image Size (px)')
     plt.ylabel('Time per Example (s)')
     plt.xlim((100, 550))
-    plt.ylim((-0.01, 0.2))
     plt.xticks(config.image_sizes)
-    plt.legend(ncol=2, loc='top left')
+    plt.legend(ncol=2, loc='upper left')
     plt.tight_layout()
     
     plt.savefig('./assets/runtime_benchmark.png', dpi=600)

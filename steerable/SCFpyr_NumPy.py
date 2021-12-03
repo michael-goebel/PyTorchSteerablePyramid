@@ -17,7 +17,7 @@ from __future__ import division
 from __future__ import print_function
 
 import numpy as np
-from scipy.misc import factorial
+from scipy.special import factorial
 
 import steerable.math_utils as math_utils
 pointOp = math_utils.pointOp

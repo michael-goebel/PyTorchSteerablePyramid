@@ -1,6 +1,8 @@
-six
-numpy
-scipy
-torch >= 0.4.0
-matplotlib
-pillow
+numpy==1.21.4
+scipy==1.7.3
+torch == 1.10.0 
+matplotlib==3.5.0
+pillow==8.4.0
+scikit-image==0.18.3
+torchvision==0.11.1
+opencv-python==4.5.4.60

@@ -1,3 +1,8 @@
+# Complex Steerable Pyramid in PyTorch: Updated for PyTorch 1.10.0
+
+A modification of the original repo, using the latest version of PyTorch and all other packages. PyTorch recently migrated from the torch.fft function(s) to a torch.fft module. In addition to new function names, this change also transitioned from representing complex numbers as a pair of doubles to a native complex datatype. The remainder of the the README is from the original codebase. All scripts in examples/ should run after following the installation instructions below.
+
+
 # Complex Steerable Pyramid in PyTorch
 
 This is a PyTorch implementation of the Complex Steerable Pyramid described in [Portilla and Simoncelli (IJCV, 2000)](http://www.cns.nyu.edu/~lcv/pubs/makeAbs.php?loc=Portilla99). 
